@@ -1,6 +1,6 @@
 test
 23
-fin
+fin 42
 4
 56 , 42
 test2
