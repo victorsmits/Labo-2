@@ -8,30 +8,16 @@ def match_phone_number(nmb):
         return print(True)
     return print(False)
 
-
-nmb = input('entrez numéro')
-match_phone_number(nmb)
-
-
 def full_number(num):
     number = r'-?[1-9][0-9]*$'
     x = re.compile(number)
     if x.match(num):
-        return print(True)
-    return print(False)
-
-
-num = input('entrez nombre entier')
-full_number(num)
-
+        return True
+    return False
 
 def car_plate(car):
     plate = re.compile(r'[1-9][a-z]{3}[0-9]{3}$|[1-9][0-9]{3}[a-z]{3}$')
     return print(plate.match(car) is not None)
-
-
-car = input('entrez numéro de plaque')
-car_plate(car)
 
 
 def dd_name(dd):
@@ -39,5 +25,16 @@ def dd_name(dd):
     return print(disque.match(dd) is not None)
 
 
-dd = input('entrez nom du disque')
-dd_name(dd)
+
+if __name__ == '__main__':
+    nmb = input('entrez numéro')
+    match_phone_number(nmb)
+
+    num = input('entrez nombre entier')
+    print(full_number(num))
+
+    car = input('entrez numéro de plaque')
+    car_plate(car)
+
+    dd = input('entrez nom du disque')
+    dd_name(dd)
