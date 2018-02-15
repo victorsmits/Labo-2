@@ -3,29 +3,22 @@ import sys
 
 
 def inventaire(path):
+    number = re.compile(r'-?\d+')
     n = 1
-    finde=''
     with open(path, 'r') as file:
-        number = re.compile(r'\d+')
         line = file.readlines()
         for i in line:
             content = number.findall(i)
             if len(content) != 0:
-                for txt in content:
-                    if len(content) >1:
-                        finde += '{}, '.format(txt)
-                    else:
-                        finde += '{}'.format(txt)
-                print('line {}: {}'.format(n, finde))
-                finde = ''
+                print('line {}: {}'.format(n, ','.join(content)))
             n += 1
 
 def path():
-    file = re.compile(r'-[a-z]*\.txt$')
-    sys = sys.arg
-    for i in sys:
-        if file.match(i) is not None:
+    file = re.compile(r'[a-z]*.txt|[a-z]\d*.txt')
+    cmd = sys.argv
+    for i in cmd:
+        if file.match(i.lower()) is not None:
             return i
-#txt = path()
-#inventaire(txt)
-inventaire('inventaire_test.txt')
+
+txt = path()
+inventaire(txt)
