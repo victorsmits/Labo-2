@@ -1,9 +1,8 @@
 import re
 
-linesregex = ['\d', '[a-z]', '[A-Z]']
-columnsregex = ['[1-9]', '\d+', '[a-z]']
+lines_regex = ['\d', '[a-z]', '[A-Z]']
+columns_regex = ['[1-9]', '\d+', '[a-z]']
 answer_line = ['1bc', 'def', 'HIJ']
-
 
 def checkregexcrossword(linesregex, columnsregex, answer):
     assert (len(linesregex) == len(answer))
@@ -36,4 +35,4 @@ def checkregexcrossword(linesregex, columnsregex, answer):
 
 
 
-checkregexcrossword(linesregex, columnsregex, answer_line)
+checkregexcrossword(lines_regex, columns_regex, answer_line)
